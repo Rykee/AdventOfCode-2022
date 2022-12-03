@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         String cookie = args[0];
-        for (int i = 2; i <= 2; i++) {
+        for (int i = 3; i <= 3; i++) {
             Challenge solverByDay = ReflectionUtils.getSolverByDay(i);
             List<String> input = getInput(i, cookie);
             solverByDay.part1(input);
