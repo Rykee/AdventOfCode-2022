@@ -27,12 +27,12 @@ public class Task05Solver implements Challenge {
     lines.stream()
         .limit(8)
         .forEach(s -> {
-          String normalized = s.replace("    ", "[]").replaceAll("\s*", ""); //[][P][][][][][][Q][][T]
+          String normalized = s.replace("    ", "[]").replaceAll("\s*", ""); //[][P][][][][][Q][][T]
           Matcher matcher = BOX_PATTERN.matcher(normalized);
           int pileIndex = 1;
-          while (matcher.find()){
+          while (matcher.find()) {
             String box = matcher.group("box");
-            if(!box.isBlank()){
+            if (!box.isBlank()) {
               piles.get(pileIndex).push(box.charAt(0));
             }
             pileIndex++;
@@ -54,7 +54,7 @@ public class Task05Solver implements Challenge {
           }
         });
     StringBuilder sb = new StringBuilder();
-    for (int i = 1; i <=9 ; i++) {
+    for (int i = 1; i <= 9; i++) {
       sb.append(piles.get(i).pop());
     }
     System.out.println(sb);
@@ -73,9 +73,9 @@ public class Task05Solver implements Challenge {
           String normalized = s.replace("    ", "[]").replaceAll("\s*", ""); //[][P][][][][][][Q][][T]
           Matcher matcher = BOX_PATTERN.matcher(normalized);
           int pileIndex = 1;
-          while (matcher.find()){
+          while (matcher.find()) {
             String box = matcher.group("box");
-            if(!box.isBlank()){
+            if (!box.isBlank()) {
               piles.get(pileIndex).push(box.charAt(0));
             }
             pileIndex++;
@@ -85,22 +85,22 @@ public class Task05Solver implements Challenge {
       Collections.reverse(piles.get(i));
     }
     lines.stream().skip(10)
-            .forEach(s -> {
-              Matcher matcher = MOVE_PATTERN.matcher(s);
-              matcher.find();
-              int amount = Integer.parseInt(matcher.group("amount"));
-              int from = Integer.parseInt(matcher.group("from"));
-              int to = Integer.parseInt(matcher.group("to"));
-              Stack<Character> stackedBoxes = piles.get(from);
-              List<Character> removedBoxes = new ArrayList<>();
-              for (int i = 0; i < amount; i++) {
-                removedBoxes.add(stackedBoxes.pop());
-              }
-              Collections.reverse(removedBoxes);
-              piles.get(to).addAll(removedBoxes);
-            });
+        .forEach(s -> {
+          Matcher matcher = MOVE_PATTERN.matcher(s);
+          matcher.find();
+          int amount = Integer.parseInt(matcher.group("amount"));
+          int from = Integer.parseInt(matcher.group("from"));
+          int to = Integer.parseInt(matcher.group("to"));
+          Stack<Character> stackedBoxes = piles.get(from);
+          List<Character> removedBoxes = new ArrayList<>();
+          for (int i = 0; i < amount; i++) {
+            removedBoxes.add(stackedBoxes.pop());
+          }
+          Collections.reverse(removedBoxes);
+          piles.get(to).addAll(removedBoxes);
+        });
     StringBuilder sb = new StringBuilder();
-    for (int i = 1; i <=9 ; i++) {
+    for (int i = 1; i <= 9; i++) {
       sb.append(piles.get(i).pop());
     }
     System.out.println(sb);
