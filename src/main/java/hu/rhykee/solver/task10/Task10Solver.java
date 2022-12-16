@@ -70,9 +70,9 @@ public class Task10Solver implements Challenge {
   private void writePixel(AtomicInteger cycle, AtomicInteger x) {
     int currentPosition = (cycle.get() - 1) % 40;
     if (currentPosition >= x.get() - 1 && currentPosition <= x.get() + 1) {
-      System.out.print("█");
+      System.out.print("\uD83C\uDF81");
     } else {
-      System.out.print(".");
+      System.out.print("\uD83C\uDF84");
     }
     if (currentPosition == 39) {
       System.out.println();
