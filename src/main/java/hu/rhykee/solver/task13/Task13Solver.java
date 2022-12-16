@@ -23,7 +23,7 @@ public class Task13Solver implements Challenge {
       PacketPair packetPair = new PacketPair();
       parsePacket(parts[0].substring(1, parts[0].length() - 1), packetPair.getFirst());
       parsePacket(parts[1].substring(1, parts[1].length() - 1), packetPair.getSecond());
-      System.out.println(" ");
+      System.out.println("aaaa ");
     }
   }
 
@@ -103,7 +103,7 @@ public class Task13Solver implements Challenge {
 
     @Override
     public boolean isValid(PacketPart<?> packetPart) {
-      switch()
+      return false;
     }
   }
 
@@ -112,6 +112,10 @@ public class Task13Solver implements Challenge {
 
     private final List<PacketPart<?>> listParts = new ArrayList<>();
 
+    @Override
+    public boolean isValid(PacketPart<?> packetPart) {
+      return false;
+    }
   }
 
 
